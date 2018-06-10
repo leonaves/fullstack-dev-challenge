@@ -1,0 +1,9 @@
+type MonthValue {
+    month: Int
+    amount: Float
+}
+
+type Query {
+    id: ID,
+    getMonthlySavings(initial: Int!, monthly: Int!, interestRate: Float!): [MonthValue]
+}

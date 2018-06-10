@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
+import SavingsGraph from "./components/SavingsGraph";
 import CurrencyInput from "./components/CurrencyInput";
 import SliderInput from "./components/SliderInput";
-import DisplayGraph from "./components/DisplayGraph";
 
 import "./App.css";
 
@@ -26,28 +26,7 @@ class App extends Component {
           <SliderInput defaultValue={4} />
         </div>
         <div className="financial-display">
-          {/*We have included some sample data here, you will need to replace this
-					with your own. Feel free to change the data structure if you wish.*/}
-          <DisplayGraph
-            data={[
-              {
-                month: 1,
-                amount: 500
-              },
-              {
-                month: 2,
-                amount: 700
-              },
-              {
-                month: 3,
-                amount: 1000
-              },
-              {
-                month: 4,
-                amount: 1500
-              }
-            ]}
-          />
+          <SavingsGraph initial={1000} monthly={100} rate={0.075} />
         </div>
       </div>
     );
