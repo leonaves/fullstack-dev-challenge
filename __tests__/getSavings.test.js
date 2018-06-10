@@ -29,3 +29,14 @@ test('Can calculate quarterly compounding interest on a principal investment', (
   expect(savings[11]).toBeCloseTo(1037.97, 2);
   expect(savings[12]).toBeCloseTo(1050.95, 2);
 });
+
+test('Can calculate compound interest on a principal investment, with regular contributions', () => {
+  const savings = getSavings(1000, 100, 0.075, 12, 4);
+
+  expect(savings[0]).toBeCloseTo(1000, 2);
+  expect(savings[1]).toBeCloseTo(1100, 2);
+  expect(savings[3]).toBeCloseTo(1322.50, 2);
+  expect(savings[6]).toBeCloseTo(1651.05, 2);
+  expect(savings[11]).toBeCloseTo(2185.75, 2);
+  expect(savings[12]).toBeCloseTo(2326.74, 2);
+});

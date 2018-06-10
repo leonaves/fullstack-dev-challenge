@@ -22,6 +22,8 @@ const getSavings = (initial, monthly, rate, months = 50, compoundsPa = 1) => {
       value += value * (rate / compoundsPa);
     }
 
+    value += monthly;
+
     values.push(value);
   }
 
