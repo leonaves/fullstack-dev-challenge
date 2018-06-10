@@ -3,28 +3,35 @@
 	font-weight: 800;
 	white-space: nowrap;
 	display: inline-block;
-	border: 2px solid #AAB8C8;
-	border-radius: 8px;
 	background: white;
+  position: relative;
 }
 
 .currency-input span {
-	height: 18px;
+	height: 16px;
 	display: inline-block;
 	font-size: 15px;
 	padding: 10px 15px;
 	border-right: 2px solid #AAB8C8;
+  position: absolute;
+  margin-top: 2px;
+  left: 0;
+}
+
+.currency-input input:focus + span {
+  border-color: #00b2ff;
 }
 
 .currency-input input {
-	padding: 9px;
-	font-size: 15px;
+  font-size: 15px;
 	display: inline-block;
 	text-align: center;
 	letter-spacing: 1px;
 	max-width: 150px;
 	width: 60%;
-	border: none;
+  padding: 9px 9px 9px 30px;
+  border: 2px solid #AAB8C8;
+  border-radius: 8px;
 }
 
 .currency-input :focus {
