@@ -6,39 +6,24 @@ import "./CurrencyInput.css";
 export default class CurrencyInput extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      hasFocus: false,
-      value: props.defaultValue
-    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    const value = e.target.value;
-    this.setState({ value });
-  }
-
-  handleFocus(e) {
-    this.setState({
-      hasFocus: true
-    });
+    this.props.onChange(e.target.value);
   }
 
   render() {
-    const { defaultValue } = this.props;
-    const { value } = this.state;
-
     return (
       <div
         className={`currency-input ${
-          defaultValue !== undefined ? "default-value" : ""
+          this.props.value !== undefined ? "default-value" : ""
         }`}
       >
         <input
           type="text"
-          value={value}
+          value={this.props.value}
           onChange={this.handleChange.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
         />
         <span>£</span>
       </div>

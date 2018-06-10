@@ -6,19 +6,15 @@ import "./SliderInput.css";
 class SliderInput extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      value: props.defaultValue
-    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    const value = e.target.value;
-    this.setState({ value });
+    this.props.onChange(e.target.value);
   }
 
   render() {
-    const { value } = this.state;
+    const { value } = this.props;
 
     return (
       <div className="fmz-slider">
@@ -29,7 +25,7 @@ class SliderInput extends Component {
           min={0}
           max={10}
           step={0.25}
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handleChange}
         />
       </div>
     );
