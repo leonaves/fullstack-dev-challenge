@@ -1,4 +1,4 @@
-const getSavingsScalar = (initial, monthly, rate, months = 50, compoundsPa = 1) => (
+const getSavingsScalar = (initial, monthly, rate, months = 600, compoundsPa = 1) => (
   [...Array(months)].map((v, index) => {
     const month = index + 1;
 

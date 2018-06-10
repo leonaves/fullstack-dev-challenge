@@ -17,17 +17,23 @@ if (process.env.NODE_ENV === "production") {
 const schema = buildSchema(`
   type MonthValue {
     month: Int
-    amount: Int
+    amount: Float
   }
 
   type Query {
-    getSavings(initial: Int!, monthly: Int!, interestRate: Int!): [MonthValue]
+    getMonthlySavings(initial: Int!, monthly: Int!, interestRate: Float!): [MonthValue]
   }
 `);
 
 // Root resolver
 const rootValue = {
-  getSavings,
+  getMonthlySavings: ({ initial, monthly, interestRate }) => (
+    getSavings(initial, monthly, interestRate)
+      .map((amount, index) => ({
+        month: index,
+        amount
+      }))
+  ),
 };
 
 app.use('/graphql', graphqlHTTP({
