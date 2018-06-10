@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import "./SliderInput.css";
 
-export default class SliderInput extends Component {
+class SliderInput extends Component {
   constructor(props) {
     super(props);
 
@@ -38,3 +39,5 @@ export default class SliderInput extends Component {
 SliderInput.propTypes = {
   defaultValue: PropTypes.number
 };
+
+export default SliderInput;
